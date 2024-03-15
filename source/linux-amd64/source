@@ -2,4 +2,4 @@
 
 APPDIR=$(readlink -f "$0")
 APPDIR=$(dirname "$APPDIR")
-java -Djna.nosys=true -Djava.library.path="$APPDIR:$APPDIR/lib" -cp "$APPDIR:$APPDIR/lib/showLabirints.jar:$APPDIR/lib/gluegen-rt.jar:$APPDIR/lib/jogl-all.jar:$APPDIR/lib/core.jar" showLabirints "$@"
+java -Djna.nosys=true -Djava.library.path="$APPDIR:$APPDIR/lib" -cp "$APPDIR:$APPDIR/lib/showLabirints.jar:$APPDIR/lib/core.jar:$APPDIR/lib/gluegen-rt.jar:$APPDIR/lib/jogl-all.jar" showLabirints "$@"

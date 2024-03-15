@@ -15,7 +15,7 @@ void setup() {
   size(800, 800);
   strokeWeight(1);
   try{
-    file = new File("/home/daniele/Projects/labirintsmaker/MazeInfo.txt");
+    file = new File("MazeInfo.txt");
     fin = new FileReader(file);
     bfin = new BufferedReader(fin);
     a =  Integer.parseInt(bfin.readLine());

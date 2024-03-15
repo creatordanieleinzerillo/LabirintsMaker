@@ -112,6 +112,6 @@ int main(int argc, char** argv){
     labirinto NuovoLabirinto(n);
     NuovoLabirinto.makemaze(0, 0);
     NuovoLabirinto.write();
-    system("./showLabirints/linux-amd64/showLabirints");
+    system("./source/linux-amd64/source");
     return 0; 
 }

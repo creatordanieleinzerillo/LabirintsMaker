@@ -91,7 +91,7 @@ class labirinto {
         void write(){
             string Informations = to_string(n) + "\n";
             ofstream writer;
-            writer.open("MazeInfo.txt");
+            writer.open("source/MazeInfo.txt");
             for(vector<Cella> riga : maze)
                 for(Cella cella : riga){
                     if(!cella.visited) continue;

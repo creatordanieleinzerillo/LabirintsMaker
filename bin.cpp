@@ -90,15 +90,20 @@ class labirinto {
 
         void write(){
             string Informations = to_string(n) + "\n";
-            ofstream writer;
-            writer.open("source/MazeInfo.txt");
+            ofstream linux_maze_info;
+            linux_maze_info.open("source/linux-amd64/MazeInfo.txt");
+            
             for(vector<Cella> riga : maze)
                 for(Cella cella : riga){
                     if(!cella.visited) continue;
                     Informations += cella.write();
                 } 
-            writer << Informations;
-            writer.close();
+            linux_maze_info << Informations;
+            linux_maze_info.close();
+            ofstream testing;
+            testing.open("source/MazeInfo.txt");
+            testing << Informations;
+            testing.close();
             return;
         }
 };

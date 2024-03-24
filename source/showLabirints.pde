@@ -2,9 +2,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-
+//MazeInfo.txt
 //Remove anti-aliasing 
-File file;
+File file, source;
 FileReader fin;
 BufferedReader bfin;
 int a;
@@ -14,7 +14,8 @@ void setup() {
   size(800, 800);
   strokeWeight(1);
   try{
-    file = new File("/home/daniele/Projects/LabirintsMaker/source/MazeInfo.txt");
+    
+    file = new File(sketchPath("") + "/MazeInfo.txt");
     fin = new FileReader(file);
     bfin = new BufferedReader(fin);
     a =  Integer.parseInt(bfin.readLine());

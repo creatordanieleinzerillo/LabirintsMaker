@@ -1,5 +1,5 @@
 class Cella {
-   public boolean wallUp, wallDown, wallLeft, wallRight;
+   public boolean wallUp, wallDown, wallLeft, wallRight, player = false, active = false;
    public Cella(String up, String down, String left, String right){
       this.wallUp = up.equals("true");
       this.wallDown = down.equals("true");
@@ -9,7 +9,12 @@ class Cella {
    
    public void draw(float startY,float startX,float dimension){
      stroke(255);
-     fill(255);
+     if(active)
+       fill(0, 100, 200); 
+     else if(player)
+       fill(100, 200, 0);  
+     else 
+       fill(255);
      if(startX == 0.0 && startY == 0.0)
        fill(100, 200, 0);
      noStroke();

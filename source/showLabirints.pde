@@ -10,8 +10,14 @@ BufferedReader bfin;
 int a;
 float cellHeight, cellWidth;
 Cella[][] maze;
+
+int playerX = 0, playerY = 0; 
+void settings(){
+  int canvasSize = (displayWidth > displayHeight) ? (displayHeight - 100) : (displayWidth - 100); 
+  size(canvasSize, canvasSize); 
+}
 void setup() {
-  size(800, 800);
+  
   strokeWeight(1);
   try{
     
@@ -37,8 +43,36 @@ void setup() {
      
      ct++;
    }
+   maze[0][0].active = true;
   }catch(Exception e){
     System.out.println(e.toString());
     return; 
   }
+  noLoop(); 
+}
+
+void draw(){
+  int n = maze.length; 
+  for(int i = 0; i < n; i++){
+   for(int j = 0; j < n; ++j){
+    maze[i][j].draw(i * cellHeight, j * cellWidth, cellHeight);  
+   }
+  }
+}
+
+void keyPressed(){
+  maze[playerX][playerY].active = false;
+  maze[playerX][playerY].player = true; 
+  if(keyCode == 'W' && !maze[playerX][playerY].wallUp)
+    playerX--;
+  else if(keyCode == 'S' && !maze[playerX][playerY].wallDown)
+    playerX++;
+  else if(keyCode == 'A' && !maze[playerX][playerY].wallLeft)
+    playerY--;
+  else if(keyCode == 'D' && !maze[playerX][playerY].wallRight)
+    playerY++;
+  
+  maze[playerX][playerY].active = true; 
+  redraw(); 
+  
 }

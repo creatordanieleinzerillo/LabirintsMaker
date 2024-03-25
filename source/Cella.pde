@@ -7,6 +7,7 @@ class Cella {
       this.wallRight = right.equals("true");
    }
    
+   
    public void draw(float startY,float startX,float dimension){
      stroke(255);
      if(active)
@@ -15,8 +16,6 @@ class Cella {
        fill(100, 200, 0);  
      else 
        fill(255);
-     if(startX == 0.0 && startY == 0.0)
-       fill(100, 200, 0);
      noStroke();
      square(startX, startY, dimension);
      stroke(0, 0, 0);

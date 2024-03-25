@@ -11,6 +11,8 @@ int a;
 float cellHeight, cellWidth;
 Cella[][] maze;
 
+boolean won = false; 
+
 int playerX = 0, playerY = 0; 
 void settings(){
   int canvasSize = (displayWidth > displayHeight) ? (displayHeight - 100) : (displayWidth - 100); 
@@ -58,9 +60,22 @@ void draw(){
     maze[i][j].draw(i * cellHeight, j * cellWidth, cellHeight);  
    }
   }
+  
+  if(won){
+    fill(0);
+    textSize(128);
+    int canvasSize = (displayWidth > displayHeight) ? (displayHeight - 100) : (displayWidth - 100); 
+    textAlign(CENTER);
+    text("Hai vinto", canvasSize / 2, canvasSize / 2);
+    
+  } 
+  
+  
 }
 
 void keyPressed(){
+  if(won)
+    return; 
   maze[playerX][playerY].active = false;
   maze[playerX][playerY].player = true; 
   if(keyCode == 'W' && !maze[playerX][playerY].wallUp)
@@ -71,8 +86,9 @@ void keyPressed(){
     playerY--;
   else if(keyCode == 'D' && !maze[playerX][playerY].wallRight)
     playerY++;
-  
+  if(playerX == maze.length - 1 && playerY == maze.length - 1){
+    won = true; 
+  }
   maze[playerX][playerY].active = true; 
   redraw(); 
-  
 }

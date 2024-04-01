@@ -46,6 +46,7 @@ void setup() {
      ct++;
    }
    maze[0][0].active = true;
+   maze[a - 1][a - 1].obj = true;
   }catch(Exception e){
     System.out.println(e.toString());
     return; 
@@ -86,7 +87,7 @@ void keyPressed(){
     playerY--;
   else if(keyCode == 'D' && !maze[playerX][playerY].wallRight)
     playerY++;
-  if(playerX == maze.length - 1 && playerY == maze.length - 1){
+  if(maze[playerX][playerY].obj){
     won = true; 
   }
   maze[playerX][playerY].active = true; 

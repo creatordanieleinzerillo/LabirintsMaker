@@ -1,5 +1,5 @@
 class Cella {
-   public boolean wallUp, wallDown, wallLeft, wallRight, player = false, active = false;
+   public boolean wallUp, wallDown, wallLeft, wallRight, player = false, active = false, obj = false;
    public Cella(String up, String down, String left, String right){
       this.wallUp = up.equals("true");
       this.wallDown = down.equals("true");
@@ -14,6 +14,8 @@ class Cella {
        fill(0, 100, 200); 
      else if(player)
        fill(100, 200, 0);  
+     else if(obj)
+       fill(240, 100, 120); 
      else 
        fill(255);
      noStroke();

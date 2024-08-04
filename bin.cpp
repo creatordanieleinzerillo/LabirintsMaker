@@ -1,7 +1,6 @@
 
 /*
 * Implementare un Garbage Collector appena hai tempo
-* Ciao
 */
 #include <iostream> 
 #include <stdlib.h>
